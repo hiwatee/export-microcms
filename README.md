@@ -16,3 +16,4 @@ pip install -r requirements.txt
 ```
 python main.py
 ```
+UTF-8で出力されますのでExcelでの利用時は各自でShift-JISに変換してください
