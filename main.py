@@ -2,6 +2,7 @@ import os
 import requests
 import json
 import csv
+import sys
 from os.path import join, dirname
 from dotenv import load_dotenv
 
@@ -12,9 +13,14 @@ load_dotenv(dotenv_path)
 API_ENDPOINT = os.environ.get("API_ENDPOINT")
 LIMIT = os.environ.get("LIMIT")
 X_API_KEY = os.environ.get("X_API_KEY")
+X_GLOBAL_DRAFT_KEY = os.environ.get("X_GLOBAL_DRAFT_KEY")
 
 def main():
-    headers = {'content-type': 'application/json', 'X-API-KEY': X_API_KEY}
+    args = sys.argv
+    if len(args) == 1:
+        headers = {'content-type': 'application/json', 'X-API-KEY': X_API_KEY}
+    else:
+        headers = {'content-type': 'application/json', 'X-API-KEY': X_API_KEY, 'X-GLOBAL-DRAFT-KEY': X_GLOBAL_DRAFT_KEY}
     res = requests.get(f"{API_ENDPOINT}?limit={LIMIT}", headers=headers)
     contents = res.json()["contents"]
     data = []

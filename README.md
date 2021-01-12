@@ -1,19 +1,33 @@
 # export-microcms
 
 ## 概要
-microCMSのコンテンツをcsv形式でexportします。  
+
+microCMS のコンテンツを csv 形式で export します。
 
 ## 環境
-python >= 3.7.3  
+
+python >= 3.7.3
 
 ## インストール
+
 ```
 pip install -r requirements.txt
 ```
-.env-sampleを.envに変更しそれぞれのパラーメーターを埋めてください  
+
+.env-sample を.env に変更しそれぞれのパラーメーターを埋めてください
 
 ## 起動/エクスポート
+
+下書きを取得しない場合
+
 ```
 python main.py
 ```
-UTF-8で出力されますのでExcelでの利用時は各自でShift-JISに変換してください
+
+下書きも取得する場合
+
+```
+python main.py draft
+```
+
+UTF-8 で出力されますので Excel での利用時は各自で Shift-JIS に変換してください
